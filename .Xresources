@@ -7,7 +7,10 @@ URxvt.font: xft:terminus:size=10
 URxvt.internalBorder    : 0
 URxvt.iso14755          : false
 URxvt.iso14755_52       : false
-URxvt.perl-ext-common   : clip
+URxvt.perl-ext-common   : default, matcher
+URxvt.url-launcher      : /usr/bin/chromium
+URxvt.matcher.button    : 1
+URxvt.matcher.rend.0    : Uline Bold fg5
 URxvt.pointerBlank      : true
 URxvt.saveLines         : 10000
 URxvt.scrollBar         : false
@@ -32,5 +35,4 @@ URxvt.color11           : #FCE94F
 URxvt.color12           : #729FCF
 URxvt.color13           : #AD7FA8
 URxvt.color14           : #34E2E2
-URxvt.color15           : #EEEEEC
 URxvt.color15           : #EEEEEC
