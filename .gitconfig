@@ -45,8 +45,14 @@
 		dsoc = !"git diff -U0 HEAD"															    # diff since last commit only changes
 		
 	#stashing
-		s = stash		
-		sa = stash apply
+		ss = stash save									# stash uncommited changes
+		sa = stash apply								# stash apply
+		sp = stash pop									# stash pop
+		sl = stash list									# stash list
+		ski = stash --keep-index						# stash keep index
+		
+	#cherry picking
+		cp = cherry-pick -x								#cherry pick
 		
 	
 	#functions
