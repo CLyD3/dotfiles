@@ -8,16 +8,19 @@ esac
 
 
 #2^12 lines of history in memory
-HISTSIZE=$((1 << 12))
+export HISTSIZE=$((1 << 12))
 
 #2^24 lines of history in file
-HISTFILESIZE=$((1 << 24))
+export HISTFILESIZE=$((1 << 24))
 
 # ignore duplicated commands and whitespace in history
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
 
 #ignore ls withouth arguments and build in commands
-HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE="&:ls:[bf]g:exit"
+
+#timestamp format
+export HISTTIMEFORMAT='%F %T 
 
 # append to the history file, don't overwrite it
 shopt -s histappend

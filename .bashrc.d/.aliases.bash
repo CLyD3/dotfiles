@@ -1,7 +1,11 @@
+#verbosity
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+
 #cd shorthands
 alias ..='cd ..'
 alias ....='cd ../..'
-alias xxx='echo IT WORKS'
 
 #ls shorthands
 alias ls='ls --color=auto'
