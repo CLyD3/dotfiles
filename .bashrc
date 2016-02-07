@@ -48,7 +48,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Load any supplementary scripts
 if [[ -d $HOME/.bashrc.d ]] ; then
     for bashrc in "$HOME"/.bashrc.d/*.bash ; do
-      echo "loading "$bashrc
         if [[ -e $bashrc ]] ; then
             source "$bashrc"
         fi
