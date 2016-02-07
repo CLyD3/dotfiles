@@ -44,6 +44,10 @@
 		ds = !"git diff HEAD"																	# diff since last commit
 		dsoc = !"git diff -U0 HEAD"															    # diff since last commit only changes
 		
+	#stashing
+		s = stash		
+		sa = stash apply
+		
 	
 	#functions
 		#find a commit by its commit message
@@ -51,7 +55,9 @@
 			git ls --grep=\"$1\"; \
 		}; f"
 		
-
+	#archiving (just syntax for now)
+		#git archive master --format=zip --output=../website-12-10-2012.zip
+		#git bundle create ../repo.bundle master
 	aliases = "!git config -l | grep alias | cut -c 7-"
 
 
