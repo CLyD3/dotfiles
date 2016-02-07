@@ -3,7 +3,10 @@ URxvt.buffered          : false
 URxvt.cursorBlink       : on
 URxvt.cutchars          : <>
 URxvt.depth             : 32
-URxvt.font: xft:terminus:size=10
+URxvt*font				:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
+URxvt*boldFont			:  -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
+URxvt*italicFont		:  xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
+URxvt*boldItalicFont	:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
 URxvt.internalBorder    : 0
 URxvt.iso14755          : false
 URxvt.iso14755_52       : false
@@ -18,6 +21,7 @@ URxvt.scrollTTyKeypress : true
 URxvt.scrollTTyOutput   : false
 URxvt.secondaryScroll   : true
 URxvt.urgentOnBell      : true
+URxvt*fading			: 30
 URxvt.background        : #030303
 URxvt.foreground        : #E0E0E0
 URxvt.color0            : #030303
