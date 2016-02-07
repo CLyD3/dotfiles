@@ -1,10 +1,38 @@
 [alias]
-	ls = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=local
-	ll = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=local
-	lsr = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	#Log
+		ls = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=local
+		ll = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=local
+		lsr = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 
-	st = status -s
-    cm = commit -m 
+	#various
+		st = status -s
+		stf = status
+		co = checkout
+		cob = checkout -b
+		lsf = ls-files
+	
+	#staging/unstagin
+		addall = !git add -A
+		unstage = reset HEAD --
+	#commiting
+		
+		cm = commit -m 
+		cam = !"git addall && git commit -m"
+		amend = commit --amend --reuse-message=HEAD
+    
+    #diffing
+		d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+		df = diff --color --abbrev
+		wd = diff --color --color-words --abbrev
+	
+	#testing
+	
+	#functions
+		#find a commit by its commit message
+		cbym = "!f() { \
+			git ls --grep=\"$1\"; \
+		}; f"
+		
 
 	aliases = "!git config -l | grep alias | cut -c 7-"
 
@@ -22,16 +50,25 @@
     meta = yellow bold
     frag = magenta bold
     old = red bold
-    new = blue bold
+    new = green bold
+    whitespace = red reverse
 
 [color "status"]
     added = yellow
-    changed = blue
+    changed = green
     untracked = red
 
 [merge]
     log = true
     ff = false
+    
+[push]
+    # push will only do the current branch, not all branches
+    default = current
+    
+[branch]
+    # unsure if it should be enabled
+    # autosetuprebase = always
 
 [user]
 	name = CLyD
