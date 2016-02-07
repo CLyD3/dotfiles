@@ -27,6 +27,8 @@ alias lsofpin='lsof -P -i -n'
 
 alias tulpena='netstat -tulpena'
 
+alias g='git'
+
 #Use htop if available
 if [ -x /usr/bin/htop ]; then
 	alias top='htop'
