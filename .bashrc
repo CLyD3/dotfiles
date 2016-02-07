@@ -28,8 +28,11 @@ shopt -s cmdhist
 #check window size and recalculate rows/columns
 shopt -s checkwinsize
 
+#include dotfiles in glob
+shopt -s dotglob
 
 
+#color for man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -39,8 +42,13 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-# source alias definitions.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+# Load any supplementary scripts
+if [[ -d $HOME/.bashrc.d ]] ; then
+    for bashrc in "$HOME"/.bashrc.d/*.bash ; do
+      echo "loading "$bashrc
+        if [[ -e $bashrc ]] ; then
+            source "$bashrc"
+        fi
+    done
+    unset -v bashrc
 fi
