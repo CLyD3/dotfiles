@@ -3,29 +3,33 @@
 		ls = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=local
 		ll = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=local
 		lsr = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+		ll1 = !"git ll -1"
 
 	#various
-		st = status -s
-		stf = status
-		co = checkout
-		cob = checkout -b
-		lsf = ls-files
+		st = status -s									# status short
+		stf = status									# status full
+		co = checkout									# checkout
+		cob = checkout -b								# checkout branch
+		lsf = ls-files									# list files
 	
 	#staging/unstagin
-		addall = !git add -A
-		unstage = reset HEAD --
+		aa = !git add -A								# add all
+		unstage = reset HEAD --							# unstage file
+		uncommit = reset --soft HEAD^     				# go back before last commit, with files in uncommitted state
+		ap = git add --patch							# add patch
+		
 	#commiting
 		
-		cm = commit -m 
-		cam = !"git addall && git commit -m"
-		amend = commit --amend --reuse-message=HEAD
+		cm = commit -m 									# commit with message
+		cam = !"git aa && git commit -m"				# commit all with message
+		amend = commit --amend --reuse-message=HEAD		# amend to last commit
+		ammend = commit --amend --reuse-message=HEAD	# "" typo
     
     #diffing
-		d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+		dc = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"  # diff current
+		ds = !"git df HEAD^"																	# diff staged
 		df = diff --color --abbrev
-		wd = diff --color --color-words --abbrev
-	
-	#testing
+		wd = diff --color --color-words --abbrev												# word diff
 	
 	#functions
 		#find a commit by its commit message
