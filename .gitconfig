@@ -29,17 +29,21 @@
 		
 	#commiting
 		
-		cm = commit -m 									# commit with message
-		cam = !"git aa && git commit -m"				# commit all with message
+		c  = commit										# commit
+		cm = !"git c -m"								# commit with message
+		ca = !"git aa && git c"							# commit all
+		cam = !"git ca -m"								# commit all with message
 		amend = commit --amend --reuse-message=HEAD		# amend to last commit
 		ammend = commit --amend --reuse-message=HEAD	# "" typo
 		remsg = commit --amend							# change latest commit message
+		wwd = git show HEAD								# WhatWasDone?
     
     #diffing
-		dc = diff --cached																		# diff current
-		ds = !"git df HEAD^"																	# diff staged
-		df = diff --color --abbrev
-		wd = diff --color --color-words --abbrev												# word diff
+		dc = diff --cached																		# diff current commit
+		dcoc = !"git dc -U0"																	# diff current commit only changes
+		ds = !"git diff HEAD"																	# diff since last commit
+		dsoc = !"git diff -U0 HEAD"															    # diff since last commit only changes
+		
 	
 	#functions
 		#find a commit by its commit message
@@ -75,6 +79,9 @@
 [merge]
     log = true
     ff = false
+ 
+[diff]
+	mnemonicprefix = true
     
 [push]
     # push will only do the current branch, not all branches
