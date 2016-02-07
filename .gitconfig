@@ -1,19 +1,28 @@
 [alias]
 	#Log
+		#log short
 		ls = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=local
-		ll = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=local
+		#log extended
+		le = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=local
+		# log short relative date
 		lsr = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-		ll1 = !"git ll -1"
+
 
 	#various
 		st = status -s									# status short
 		stf = status									# status full
+		lsf = ls-files									# list files
+		
+	#branching
 		co = checkout									# checkout
 		cob = checkout -b								# checkout branch
-		lsf = ls-files									# list files
+		renamebranch = branch -m						# rename branch <oldname> <newname> || <newname> (for current branch)
+		
 	
 	#staging/unstagin
-		aa = !git add -A								# add all
+		a = add											# add
+		aa = !git add -u								# add all (only tracked)
+		aau = !git add -A								# add all (also untracked)
 		unstage = reset HEAD --							# unstage file
 		uncommit = reset --soft HEAD^     				# go back before last commit, with files in uncommitted state
 		ap = git add --patch							# add patch
@@ -24,9 +33,10 @@
 		cam = !"git aa && git commit -m"				# commit all with message
 		amend = commit --amend --reuse-message=HEAD		# amend to last commit
 		ammend = commit --amend --reuse-message=HEAD	# "" typo
+		remsg = commit --amend							# change latest commit message
     
     #diffing
-		dc = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"  # diff current
+		dc = diff --cached																		# diff current
 		ds = !"git df HEAD^"																	# diff staged
 		df = diff --color --abbrev
 		wd = diff --color --color-words --abbrev												# word diff
