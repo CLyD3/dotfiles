@@ -38,7 +38,7 @@ prompt() {
             # Decide prompt color formatting based on color availability
             local format
             format=$( {
-                tput AF 4 || tput setaf 4
+                tput AF 2 || tput setaf 6
                 tput md || tput bold
             } 2>/dev/null )
 
