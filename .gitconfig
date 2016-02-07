@@ -12,7 +12,7 @@
 
 [color "branch"]
     current = yellow reverse
-    local = yello
+    local = yellow
     remote = green
 
 [color "diff"]
@@ -25,3 +25,7 @@
     added = yellow
     changed = blue
     untracked = red
+    
+[user]
+	name = CLyD
+	email = 
