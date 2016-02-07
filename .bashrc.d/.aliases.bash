@@ -42,7 +42,3 @@ fi
 
 #start bc with mathlib
 alias bc='bc -l'
-
-#git
-alias gls='git status'
-alias gcm='git commit -m'
