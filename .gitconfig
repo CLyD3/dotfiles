@@ -6,6 +6,10 @@
 		le = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --date=local
 		# log short relative date
 		lsr = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+		
+		# search log for string introduced or removed in commit
+		logsearch = !git le -S
+		
 
 
 	#various
@@ -13,14 +17,27 @@
 		stf = status									# status full
 		lsf = ls-files									# list files
 		
+		
+		# The ref-log keeps all local changes to HEAD and branch references (limited to 'a few month')
+		rl  = ref-log									# ref-log
+		rllog = log -g									# ref-log in git log formatting
+		rp  = rev-parse									# rev-parse
+		
+	#Inspecting
+		sh = show HEAD									# show the current HEAD
+		shp = show HEAD^								# show the parent of HEAD
+		# 
+		
 	#branching
 		co = checkout									# checkout
 		cob = checkout -b								# checkout branch
 		renamebranch = branch -m						# rename branch <oldname> <newname> || <newname> (for current branch)
+
 		
 	
 	#staging/unstagin
 		a = add											# add
+		ai = add -i										# interactive staging
 		aa = !git add -u								# add all (only tracked)
 		aau = !git add -A								# add all (also untracked)
 		unstage = reset HEAD --							# unstage file
@@ -46,26 +63,49 @@
 		
 	#stashing
 		ss = stash save									# stash uncommited changes
+		spatch = stash --patch							# stash parts of a file
 		sa = stash apply								# stash apply
 		sp = stash pop									# stash pop
 		sl = stash list									# stash list
-		ski = stash --keep-index						# stash keep index
+		ski = stash --keep-index						# stash keep index (Do not stash staged files)
+		sbr = stash branch								# apply stashed changes to a new branch
 		
 	#cherry picking
 		cp = cherry-pick -x								#cherry pick
 		
+	#git grep
+		grp = grep -n --break --heading					# grep for anything with linenumbers and a little formatting
+		grpcnt = !git grp --count						# only show files and # of appearences
+		grpfnc = !git grp -p
+		
+	
+		
+	aliases = "!git config -l | grep alias | cut -c 7-"
 	
 	#functions
 		#find a commit by its commit message
 		cbym = "!f() { \
 			git ls --grep=\"$1\"; \
 		}; f"
-		
-	#archiving (just syntax for now)
-		#git archive master --format=zip --output=../website-12-10-2012.zip
-		#git bundle create ../repo.bundle master
-	aliases = "!git config -l | grep alias | cut -c 7-"
 
+	
+		
+	#unworthy of an alias but still useful
+		# git log branchA..branchB					    # Displays all commits that are in B but NOT in A
+		# git log origin/master..HEAD				    # What Am I Pushing?
+		# git log branchA branchB --not branchC			# Commits in A or B but NOT in C
+		
+		# Show commits that are in (A or B) but NOT in (A and B). 
+		# git log --left-right branchA...branchB 
+		#             |
+		#        	  |
+		# indicators (<,>) for commit source
+		
+		# git archive master --format=zip --output=../foo.zip
+		# git bundle create ../repo.bundle master
+		
+		# search log for a line/function 
+		# git log -L :function:file
 
 #Color settings
 [color]
