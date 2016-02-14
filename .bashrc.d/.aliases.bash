@@ -91,6 +91,8 @@ alias subnet='ipad | cut -d "." -f1-3'
 alias nmapsn='echo $(subnet).* | xargs nmap -sn'
 alias nmapva='nmap -v -A'
 
+alias revdns='dig +noall +answer -x'
+
 myip(){ ip=$(ip -o -4 addr list $1 | awk '{print $4}' | cut -d/ -f1); echo $ip; }
 
 anyip(){ ipl=$(myip enp9s0); ipw=$(myip wlp11s0); \
@@ -102,6 +104,8 @@ anyip(){ ipl=$(myip enp9s0); ipw=$(myip wlp11s0); \
     fi;
     echo $ipl; \
     }
+
+capture_http(){ ngrep -q -d $1 -W byline port 80; }
 
 
 
