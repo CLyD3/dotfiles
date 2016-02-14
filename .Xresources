@@ -7,10 +7,10 @@ URxvt*font				:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminu
 URxvt*boldFont			:  -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
 URxvt*italicFont		:  xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
 URxvt*boldItalicFont	:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
-URxvt.internalBorder    : 0
+URxvt.internalBorder    : 1
 URxvt.iso14755          : false
 URxvt.iso14755_52       : false
-URxvt.perl-ext-common   : default, matcher
+URxvt.perl-ext-common   : default
 URxvt.url-launcher      : /usr/bin/chromium
 URxvt.matcher.button    : 1
 URxvt.matcher.rend.0    : Uline Bold fg5
