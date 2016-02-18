@@ -7,6 +7,9 @@ alias .....='.... && ..'
 ###LS
 alias ls='ls --color=auto'
 
+# list (a)ll  in (l)ist format with (t)ouchtime without ownership(gG)
+alias lsgg='ls -ghaltG'
+
 # show all files
 alias la='ls -a'
 
