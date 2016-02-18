@@ -16,3 +16,4 @@ ln -sfv "$DOTFILES_DIR/.bashrc.d" ~
 ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/.Xresources" ~
+ln -sfv "$DOTFILES_DIR/.vimrc" ~
