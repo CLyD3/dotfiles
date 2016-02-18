@@ -9,6 +9,8 @@ alias metadata='find -exec file {} \;'
 ###############
 ### FINDING ###
 ###############
+# list (a)ll  in (l)ist format with (t)ouchtime without ownership(gG)
+alias lsgg='ls -ghatG'
 
 # by name
 alias fname='find -name'
@@ -17,7 +19,6 @@ alias fname='find -name'
 alias fpath='find -path'
 
 alias sbrc='source ~/.bashrc'
-
 
 ###random
 # exact match
