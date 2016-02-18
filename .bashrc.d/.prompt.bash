@@ -14,6 +14,7 @@ prompt() {
         on)
             # Set up pre-prompt command
             PROMPT_COMMAND='declare -i PROMPT_RETURN=$? ; history -a'
+	    
             # Set up prompt, including optional PROMPT_PREFIX and PROMPT_SUFFIX
             # variables
             PS1='[\u@\h:\w]'
